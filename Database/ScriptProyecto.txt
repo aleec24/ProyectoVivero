@@ -1,0 +1,1731 @@
+CREATE TABLE Cliente
+(
+	IdCliente            INTEGER NOT NULL ,
+	Nombre               VARCHAR2(20) NOT NULL ,
+	PrimerApellido       VARCHAR2(20) NOT NULL ,
+	Cedula               VARCHAR2(20) NOT NULL ,
+	Telefono             VARCHAR2(20) NOT NULL ,
+	CorreoElectronico    VARCHAR2(40) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKCliente ON Cliente
+(IdCliente   ASC);
+
+
+
+ALTER TABLE Cliente
+	ADD CONSTRAINT  XPKCliente PRIMARY KEY (IdCliente);
+
+
+
+CREATE TABLE Clima
+(
+	IdClima              INTEGER NOT NULL ,
+	TipoClima            VARCHAR2(20) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKClima ON Clima
+(IdClima   ASC);
+
+
+
+ALTER TABLE Clima
+	ADD CONSTRAINT  XPKClima PRIMARY KEY (IdClima);
+
+
+
+CREATE TABLE Enfermedad
+(
+	IdEnfermedad         INTEGER NOT NULL ,
+	Nombre               VARCHAR2(30) NOT NULL ,
+	Descripcion          VARCHAR2(100) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKEnfermedad ON Enfermedad
+(IdEnfermedad   ASC);
+
+
+
+ALTER TABLE Enfermedad
+	ADD CONSTRAINT  XPKEnfermedad PRIMARY KEY (IdEnfermedad);
+
+
+
+CREATE TABLE EstacionFlorecimiento
+(
+	IdEstacionFlorecimiento INTEGER NOT NULL ,
+	Estacion             VARCHAR2(20) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKEstacionFlorecimiento ON EstacionFlorecimiento
+(IdEstacionFlorecimiento   ASC);
+
+
+
+ALTER TABLE EstacionFlorecimiento
+	ADD CONSTRAINT  XPKEstacionFlorecimiento PRIMARY KEY (IdEstacionFlorecimiento);
+
+
+
+CREATE TABLE ExposicionSolar
+(
+	IdExposicionSolar    INTEGER NOT NULL ,
+	TipoExposicionSolar  VARCHAR2(20) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKExposicionSolar ON ExposicionSolar
+(IdExposicionSolar   ASC);
+
+
+
+ALTER TABLE ExposicionSolar
+	ADD CONSTRAINT  XPKExposicionSolar PRIMARY KEY (IdExposicionSolar);
+
+
+
+CREATE TABLE Inventario
+(
+	IdInventario         INTEGER NOT NULL ,
+	IdPlanta             INTEGER NULL ,
+	IdProducto           INTEGER NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKInventario ON Inventario
+(IdInventario   ASC);
+
+
+
+ALTER TABLE Inventario
+	ADD CONSTRAINT  XPKInventario PRIMARY KEY (IdInventario);
+
+
+
+CREATE TABLE Peste
+(
+	IdPeste              INTEGER NOT NULL ,
+	Nombre               VARCHAR2(30) NOT NULL ,
+	Descripcion          VARCHAR2(100) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKPeste ON Peste
+(IdPeste   ASC);
+
+
+
+ALTER TABLE Peste
+	ADD CONSTRAINT  XPKPeste PRIMARY KEY (IdPeste);
+
+
+
+CREATE TABLE Planta
+(
+	IdPlanta             INTEGER NOT NULL ,
+	NombreComun          VARCHAR2(50) NOT NULL ,
+	NombreCientifico     VARCHAR2(80) NOT NULL ,
+	IdClima              INTEGER NOT NULL ,
+	IdSuelo              INTEGER NOT NULL ,
+	IdExposicionSolar    INTEGER NOT NULL ,
+	IdRiego              INTEGER NOT NULL ,
+	IdTipoPlanta         INTEGER NOT NULL ,
+	IdEstacionFlorecimiento INTEGER NOT NULL ,
+	IdRegion             INTEGER NULL ,
+	Toxicidad            SMALLINT NOT NULL ,
+	IdPeste              INTEGER NULL ,
+	IdEnfermedad         INTEGER NULL ,
+	Descripcion          VARCHAR2(250) NOT NULL ,
+	PrecioPlanta         INTEGER NOT NULL ,
+	IdPropagacion        INTEGER NOT NULL ,
+	ImagenPlanta         VARCHAR2(100) NOT NULL ,
+	IdProveedor          INTEGER NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKPlanta ON Planta
+(IdPlanta   ASC);
+
+
+
+ALTER TABLE Planta
+	ADD CONSTRAINT  XPKPlanta PRIMARY KEY (IdPlanta);
+
+
+
+CREATE TABLE ProductoVivero
+(
+	IdProducto           INTEGER NOT NULL ,
+	Nombre               VARCHAR2(50) NOT NULL ,
+	DescripcionProducto  VARCHAR2(150) NOT NULL ,
+	PrecioProducto       INTEGER NOT NULL ,
+	IdProveedor          INTEGER NULL ,
+	ImagenProductoVivero VARCHAR2(150) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKProductoVivero ON ProductoVivero
+(IdProducto   ASC);
+
+
+
+ALTER TABLE ProductoVivero
+	ADD CONSTRAINT  XPKProductoVivero PRIMARY KEY (IdProducto);
+
+
+
+CREATE TABLE Propagacion
+(
+	IdPropagacion        INTEGER NOT NULL ,
+	Descripcion          VARCHAR2(50) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKPropagacion ON Propagacion
+(IdPropagacion   ASC);
+
+
+
+ALTER TABLE Propagacion
+	ADD CONSTRAINT  XPKPropagacion PRIMARY KEY (IdPropagacion);
+
+
+
+CREATE TABLE Proveedor
+(
+	IdProveedor          INTEGER NOT NULL ,
+	Nombre               VARCHAR2(40) NOT NULL ,
+	Telefono             VARCHAR2(20) NOT NULL ,
+	CorreoElectronico    VARCHAR2(30) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKProveedor ON Proveedor
+(IdProveedor   ASC);
+
+
+
+ALTER TABLE Proveedor
+	ADD CONSTRAINT  XPKProveedor PRIMARY KEY (IdProveedor);
+
+
+
+CREATE TABLE RegionNativa
+(
+	IdRegion             INTEGER NOT NULL ,
+	Region               VARCHAR2(20) NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKRegionNativa ON RegionNativa
+(IdRegion   ASC);
+
+
+
+ALTER TABLE RegionNativa
+	ADD CONSTRAINT  XPKRegionNativa PRIMARY KEY (IdRegion);
+
+
+
+CREATE TABLE Riego
+(
+	IdRiego              INTEGER NOT NULL ,
+	Frecuencia           VARCHAR2(30) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKRiego ON Riego
+(IdRiego   ASC);
+
+
+
+ALTER TABLE Riego
+	ADD CONSTRAINT  XPKRiego PRIMARY KEY (IdRiego);
+
+
+
+CREATE TABLE Suelo
+(
+	IdSuelo              INTEGER NOT NULL ,
+	TipoSuelo            VARCHAR2(20) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKSuelo ON Suelo
+(IdSuelo   ASC);
+
+
+
+ALTER TABLE Suelo
+	ADD CONSTRAINT  XPKSuelo PRIMARY KEY (IdSuelo);
+
+
+
+CREATE TABLE TipoPlanta
+(
+	IdTipoPlanta         INTEGER NOT NULL ,
+	Tipo                 VARCHAR2(30) NOT NULL 
+);
+
+
+
+CREATE UNIQUE INDEX XPKTipoPlanta ON TipoPlanta
+(IdTipoPlanta   ASC);
+
+
+
+ALTER TABLE TipoPlanta
+	ADD CONSTRAINT  XPKTipoPlanta PRIMARY KEY (IdTipoPlanta);
+
+
+
+ALTER TABLE Inventario
+	ADD (CONSTRAINT R_24 FOREIGN KEY (IdPlanta) REFERENCES Planta (IdPlanta) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Inventario
+	ADD (CONSTRAINT R_25 FOREIGN KEY (IdProducto) REFERENCES ProductoVivero (IdProducto) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_12 FOREIGN KEY (IdClima) REFERENCES Clima (IdClima) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_14 FOREIGN KEY (IdEnfermedad) REFERENCES Enfermedad (IdEnfermedad) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_15 FOREIGN KEY (IdExposicionSolar) REFERENCES ExposicionSolar (IdExposicionSolar) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_16 FOREIGN KEY (IdTipoPlanta) REFERENCES TipoPlanta (IdTipoPlanta) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_17 FOREIGN KEY (IdEstacionFlorecimiento) REFERENCES EstacionFlorecimiento (IdEstacionFlorecimiento) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_18 FOREIGN KEY (IdRiego) REFERENCES Riego (IdRiego) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_19 FOREIGN KEY (IdSuelo) REFERENCES Suelo (IdSuelo) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_21 FOREIGN KEY (IdRegion) REFERENCES RegionNativa (IdRegion) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_22 FOREIGN KEY (IdPeste) REFERENCES Peste (IdPeste) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_23 FOREIGN KEY (IdPropagacion) REFERENCES Propagacion (IdPropagacion) ON DELETE SET NULL);
+
+
+
+ALTER TABLE Planta
+	ADD (CONSTRAINT R_26 FOREIGN KEY (IdProveedor) REFERENCES Proveedor (IdProveedor) ON DELETE SET NULL);
+
+
+
+ALTER TABLE ProductoVivero
+	ADD (CONSTRAINT R_27 FOREIGN KEY (IdProveedor) REFERENCES Proveedor (IdProveedor) ON DELETE SET NULL);
+
+
+
+CREATE  TRIGGER  tD_Clima AFTER DELETE ON Clima for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Clima 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Clima  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000a6b3", PARENT_OWNER="", PARENT_TABLE="Clima"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_12", FK_COLUMNS="IdClima" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdClima = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdClima = :old.IdClima;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Clima AFTER UPDATE ON Clima for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Clima 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Clima  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000d2bc", PARENT_OWNER="", PARENT_TABLE="Clima"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_12", FK_COLUMNS="IdClima" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdClima <> :new.IdClima
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdClima = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdClima = :old.IdClima;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_Enfermedad AFTER DELETE ON Enfermedad for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Enfermedad 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Enfermedad  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000b9a7", PARENT_OWNER="", PARENT_TABLE="Enfermedad"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_14", FK_COLUMNS="IdEnfermedad" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdEnfermedad = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdEnfermedad = :old.IdEnfermedad;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Enfermedad AFTER UPDATE ON Enfermedad for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Enfermedad 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Enfermedad  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000eb55", PARENT_OWNER="", PARENT_TABLE="Enfermedad"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_14", FK_COLUMNS="IdEnfermedad" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdEnfermedad <> :new.IdEnfermedad
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdEnfermedad = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdEnfermedad = :old.IdEnfermedad;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_EstacionFlorecimiento AFTER DELETE ON EstacionFlorecimiento for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on EstacionFlorecimiento 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* EstacionFlorecimiento  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000cdd8", PARENT_OWNER="", PARENT_TABLE="EstacionFlorecimiento"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_17", FK_COLUMNS="IdEstacionFlorecimiento" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdEstacionFlorecimiento = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdEstacionFlorecimiento = :old.IdEstacionFlorecimiento;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_EstacionFlorecimiento AFTER UPDATE ON EstacionFlorecimiento for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on EstacionFlorecimiento 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* EstacionFlorecimiento  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="00010997", PARENT_OWNER="", PARENT_TABLE="EstacionFlorecimiento"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_17", FK_COLUMNS="IdEstacionFlorecimiento" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdEstacionFlorecimiento <> :new.IdEstacionFlorecimiento
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdEstacionFlorecimiento = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdEstacionFlorecimiento = :old.IdEstacionFlorecimiento;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_ExposicionSolar AFTER DELETE ON ExposicionSolar for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on ExposicionSolar 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* ExposicionSolar  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000bb90", PARENT_OWNER="", PARENT_TABLE="ExposicionSolar"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_15", FK_COLUMNS="IdExposicionSolar" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdExposicionSolar = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdExposicionSolar = :old.IdExposicionSolar;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_ExposicionSolar AFTER UPDATE ON ExposicionSolar for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on ExposicionSolar 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* ExposicionSolar  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000f11d", PARENT_OWNER="", PARENT_TABLE="ExposicionSolar"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_15", FK_COLUMNS="IdExposicionSolar" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdExposicionSolar <> :new.IdExposicionSolar
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdExposicionSolar = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdExposicionSolar = :old.IdExposicionSolar;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER tI_Inventario BEFORE INSERT ON Inventario for each row
+-- ERwin Builtin Trigger
+-- INSERT trigger on Inventario 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* ProductoVivero  Inventario on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00020580", PARENT_OWNER="", PARENT_TABLE="ProductoVivero"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_25", FK_COLUMNS="IdProducto" */
+    UPDATE Inventario
+      SET
+        /* %SetFK(Inventario,NULL) */
+        Inventario.IdProducto = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM ProductoVivero
+            WHERE
+              /* %JoinFKPK(:%New,ProductoVivero," = "," AND") */
+              :new.IdProducto = ProductoVivero.IdProducto
+        ) 
+        /* %JoinPKPK(Inventario,:%New," = "," AND") */
+         and Inventario.IdInventario = :new.IdInventario;
+
+    /* ERwin Builtin Trigger */
+    /* Planta  Inventario on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Planta"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_24", FK_COLUMNS="IdPlanta" */
+    UPDATE Inventario
+      SET
+        /* %SetFK(Inventario,NULL) */
+        Inventario.IdPlanta = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Planta
+            WHERE
+              /* %JoinFKPK(:%New,Planta," = "," AND") */
+              :new.IdPlanta = Planta.IdPlanta
+        ) 
+        /* %JoinPKPK(Inventario,:%New," = "," AND") */
+         and Inventario.IdInventario = :new.IdInventario;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Inventario AFTER UPDATE ON Inventario for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Inventario 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* ERwin Builtin Trigger */
+  /* ProductoVivero  Inventario on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00020842", PARENT_OWNER="", PARENT_TABLE="ProductoVivero"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_25", FK_COLUMNS="IdProducto" */
+  SELECT count(*) INTO NUMROWS
+    FROM ProductoVivero
+    WHERE
+      /* %JoinFKPK(:%New,ProductoVivero," = "," AND") */
+      :new.IdProducto = ProductoVivero.IdProducto;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdProducto IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Inventario because ProductoVivero does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Planta  Inventario on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Planta"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_24", FK_COLUMNS="IdPlanta" */
+  SELECT count(*) INTO NUMROWS
+    FROM Planta
+    WHERE
+      /* %JoinFKPK(:%New,Planta," = "," AND") */
+      :new.IdPlanta = Planta.IdPlanta;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdPlanta IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Inventario because Planta does not exist.'
+    );
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_Peste AFTER DELETE ON Peste for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Peste 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Peste  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000b198", PARENT_OWNER="", PARENT_TABLE="Peste"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_22", FK_COLUMNS="IdPeste" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdPeste = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdPeste = :old.IdPeste;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Peste AFTER UPDATE ON Peste for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Peste 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Peste  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000d202", PARENT_OWNER="", PARENT_TABLE="Peste"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_22", FK_COLUMNS="IdPeste" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdPeste <> :new.IdPeste
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdPeste = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdPeste = :old.IdPeste;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER tI_Planta BEFORE INSERT ON Planta for each row
+-- ERwin Builtin Trigger
+-- INSERT trigger on Planta 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Proveedor  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="000af2d7", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_26", FK_COLUMNS="IdProveedor" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdProveedor = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Proveedor
+            WHERE
+              /* %JoinFKPK(:%New,Proveedor," = "," AND") */
+              :new.IdProveedor = Proveedor.IdProveedor
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* Propagacion  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Propagacion"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_23", FK_COLUMNS="IdPropagacion" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdPropagacion = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Propagacion
+            WHERE
+              /* %JoinFKPK(:%New,Propagacion," = "," AND") */
+              :new.IdPropagacion = Propagacion.IdPropagacion
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* Peste  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Peste"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_22", FK_COLUMNS="IdPeste" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdPeste = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Peste
+            WHERE
+              /* %JoinFKPK(:%New,Peste," = "," AND") */
+              :new.IdPeste = Peste.IdPeste
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* RegionNativa  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="RegionNativa"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_21", FK_COLUMNS="IdRegion" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdRegion = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM RegionNativa
+            WHERE
+              /* %JoinFKPK(:%New,RegionNativa," = "," AND") */
+              :new.IdRegion = RegionNativa.IdRegion
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* Suelo  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Suelo"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="IdSuelo" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdSuelo = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Suelo
+            WHERE
+              /* %JoinFKPK(:%New,Suelo," = "," AND") */
+              :new.IdSuelo = Suelo.IdSuelo
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* Riego  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Riego"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_18", FK_COLUMNS="IdRiego" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdRiego = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Riego
+            WHERE
+              /* %JoinFKPK(:%New,Riego," = "," AND") */
+              :new.IdRiego = Riego.IdRiego
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* EstacionFlorecimiento  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EstacionFlorecimiento"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_17", FK_COLUMNS="IdEstacionFlorecimiento" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdEstacionFlorecimiento = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM EstacionFlorecimiento
+            WHERE
+              /* %JoinFKPK(:%New,EstacionFlorecimiento," = "," AND") */
+              :new.IdEstacionFlorecimiento = EstacionFlorecimiento.IdEstacionFlorecimiento
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* TipoPlanta  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="TipoPlanta"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_16", FK_COLUMNS="IdTipoPlanta" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdTipoPlanta = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM TipoPlanta
+            WHERE
+              /* %JoinFKPK(:%New,TipoPlanta," = "," AND") */
+              :new.IdTipoPlanta = TipoPlanta.IdTipoPlanta
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* ExposicionSolar  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="ExposicionSolar"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_15", FK_COLUMNS="IdExposicionSolar" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdExposicionSolar = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM ExposicionSolar
+            WHERE
+              /* %JoinFKPK(:%New,ExposicionSolar," = "," AND") */
+              :new.IdExposicionSolar = ExposicionSolar.IdExposicionSolar
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* Enfermedad  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Enfermedad"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_14", FK_COLUMNS="IdEnfermedad" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdEnfermedad = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Enfermedad
+            WHERE
+              /* %JoinFKPK(:%New,Enfermedad," = "," AND") */
+              :new.IdEnfermedad = Enfermedad.IdEnfermedad
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+    /* ERwin Builtin Trigger */
+    /* Clima  Planta on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Clima"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_12", FK_COLUMNS="IdClima" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdClima = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Clima
+            WHERE
+              /* %JoinFKPK(:%New,Clima," = "," AND") */
+              :new.IdClima = Clima.IdClima
+        ) 
+        /* %JoinPKPK(Planta,:%New," = "," AND") */
+         and Planta.IdPlanta = :new.IdPlanta;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER  tD_Planta AFTER DELETE ON Planta for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Planta 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Planta  Inventario on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000b52f", PARENT_OWNER="", PARENT_TABLE="Planta"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_24", FK_COLUMNS="IdPlanta" */
+    UPDATE Inventario
+      SET
+        /* %SetFK(Inventario,NULL) */
+        Inventario.IdPlanta = NULL
+      WHERE
+        /* %JoinFKPK(Inventario,:%Old," = "," AND") */
+        Inventario.IdPlanta = :old.IdPlanta;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Planta AFTER UPDATE ON Planta for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Planta 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Planta  Inventario on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="000cc81b", PARENT_OWNER="", PARENT_TABLE="Planta"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_24", FK_COLUMNS="IdPlanta" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdPlanta <> :new.IdPlanta
+  THEN
+    UPDATE Inventario
+      SET
+        /* %SetFK(Inventario,NULL) */
+        Inventario.IdPlanta = NULL
+      WHERE
+        /* %JoinFKPK(Inventario,:%Old," = ",",") */
+        Inventario.IdPlanta = :old.IdPlanta;
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Proveedor  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_26", FK_COLUMNS="IdProveedor" */
+  SELECT count(*) INTO NUMROWS
+    FROM Proveedor
+    WHERE
+      /* %JoinFKPK(:%New,Proveedor," = "," AND") */
+      :new.IdProveedor = Proveedor.IdProveedor;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdProveedor IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because Proveedor does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Propagacion  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Propagacion"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_23", FK_COLUMNS="IdPropagacion" */
+  SELECT count(*) INTO NUMROWS
+    FROM Propagacion
+    WHERE
+      /* %JoinFKPK(:%New,Propagacion," = "," AND") */
+      :new.IdPropagacion = Propagacion.IdPropagacion;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdPropagacion IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because Propagacion does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Peste  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Peste"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_22", FK_COLUMNS="IdPeste" */
+  SELECT count(*) INTO NUMROWS
+    FROM Peste
+    WHERE
+      /* %JoinFKPK(:%New,Peste," = "," AND") */
+      :new.IdPeste = Peste.IdPeste;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdPeste IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because Peste does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* RegionNativa  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="RegionNativa"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_21", FK_COLUMNS="IdRegion" */
+  SELECT count(*) INTO NUMROWS
+    FROM RegionNativa
+    WHERE
+      /* %JoinFKPK(:%New,RegionNativa," = "," AND") */
+      :new.IdRegion = RegionNativa.IdRegion;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdRegion IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because RegionNativa does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Suelo  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Suelo"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="IdSuelo" */
+  SELECT count(*) INTO NUMROWS
+    FROM Suelo
+    WHERE
+      /* %JoinFKPK(:%New,Suelo," = "," AND") */
+      :new.IdSuelo = Suelo.IdSuelo;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdSuelo IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because Suelo does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Riego  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Riego"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_18", FK_COLUMNS="IdRiego" */
+  SELECT count(*) INTO NUMROWS
+    FROM Riego
+    WHERE
+      /* %JoinFKPK(:%New,Riego," = "," AND") */
+      :new.IdRiego = Riego.IdRiego;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdRiego IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because Riego does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* EstacionFlorecimiento  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="EstacionFlorecimiento"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_17", FK_COLUMNS="IdEstacionFlorecimiento" */
+  SELECT count(*) INTO NUMROWS
+    FROM EstacionFlorecimiento
+    WHERE
+      /* %JoinFKPK(:%New,EstacionFlorecimiento," = "," AND") */
+      :new.IdEstacionFlorecimiento = EstacionFlorecimiento.IdEstacionFlorecimiento;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdEstacionFlorecimiento IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because EstacionFlorecimiento does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* TipoPlanta  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="TipoPlanta"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_16", FK_COLUMNS="IdTipoPlanta" */
+  SELECT count(*) INTO NUMROWS
+    FROM TipoPlanta
+    WHERE
+      /* %JoinFKPK(:%New,TipoPlanta," = "," AND") */
+      :new.IdTipoPlanta = TipoPlanta.IdTipoPlanta;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdTipoPlanta IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because TipoPlanta does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* ExposicionSolar  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="ExposicionSolar"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_15", FK_COLUMNS="IdExposicionSolar" */
+  SELECT count(*) INTO NUMROWS
+    FROM ExposicionSolar
+    WHERE
+      /* %JoinFKPK(:%New,ExposicionSolar," = "," AND") */
+      :new.IdExposicionSolar = ExposicionSolar.IdExposicionSolar;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdExposicionSolar IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because ExposicionSolar does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Enfermedad  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Enfermedad"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_14", FK_COLUMNS="IdEnfermedad" */
+  SELECT count(*) INTO NUMROWS
+    FROM Enfermedad
+    WHERE
+      /* %JoinFKPK(:%New,Enfermedad," = "," AND") */
+      :new.IdEnfermedad = Enfermedad.IdEnfermedad;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdEnfermedad IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because Enfermedad does not exist.'
+    );
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Clima  Planta on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Clima"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_12", FK_COLUMNS="IdClima" */
+  SELECT count(*) INTO NUMROWS
+    FROM Clima
+    WHERE
+      /* %JoinFKPK(:%New,Clima," = "," AND") */
+      :new.IdClima = Clima.IdClima;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdClima IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update Planta because Clima does not exist.'
+    );
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER tI_ProductoVivero BEFORE INSERT ON ProductoVivero for each row
+-- ERwin Builtin Trigger
+-- INSERT trigger on ProductoVivero 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Proveedor  ProductoVivero on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="0000fe88", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="ProductoVivero"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_27", FK_COLUMNS="IdProveedor" */
+    UPDATE ProductoVivero
+      SET
+        /* %SetFK(ProductoVivero,NULL) */
+        ProductoVivero.IdProveedor = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM Proveedor
+            WHERE
+              /* %JoinFKPK(:%New,Proveedor," = "," AND") */
+              :new.IdProveedor = Proveedor.IdProveedor
+        ) 
+        /* %JoinPKPK(ProductoVivero,:%New," = "," AND") */
+         and ProductoVivero.IdProducto = :new.IdProducto;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER  tD_ProductoVivero AFTER DELETE ON ProductoVivero for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on ProductoVivero 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* ProductoVivero  Inventario on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000b3c1", PARENT_OWNER="", PARENT_TABLE="ProductoVivero"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_25", FK_COLUMNS="IdProducto" */
+    UPDATE Inventario
+      SET
+        /* %SetFK(Inventario,NULL) */
+        Inventario.IdProducto = NULL
+      WHERE
+        /* %JoinFKPK(Inventario,:%Old," = "," AND") */
+        Inventario.IdProducto = :old.IdProducto;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_ProductoVivero AFTER UPDATE ON ProductoVivero for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on ProductoVivero 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* ProductoVivero  Inventario on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0001f8d4", PARENT_OWNER="", PARENT_TABLE="ProductoVivero"
+    CHILD_OWNER="", CHILD_TABLE="Inventario"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_25", FK_COLUMNS="IdProducto" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdProducto <> :new.IdProducto
+  THEN
+    UPDATE Inventario
+      SET
+        /* %SetFK(Inventario,NULL) */
+        Inventario.IdProducto = NULL
+      WHERE
+        /* %JoinFKPK(Inventario,:%Old," = ",",") */
+        Inventario.IdProducto = :old.IdProducto;
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* Proveedor  ProductoVivero on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="ProductoVivero"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_27", FK_COLUMNS="IdProveedor" */
+  SELECT count(*) INTO NUMROWS
+    FROM Proveedor
+    WHERE
+      /* %JoinFKPK(:%New,Proveedor," = "," AND") */
+      :new.IdProveedor = Proveedor.IdProveedor;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.IdProveedor IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update ProductoVivero because Proveedor does not exist.'
+    );
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_Propagacion AFTER DELETE ON Propagacion for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Propagacion 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Propagacion  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000b63f", PARENT_OWNER="", PARENT_TABLE="Propagacion"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_23", FK_COLUMNS="IdPropagacion" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdPropagacion = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdPropagacion = :old.IdPropagacion;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Propagacion AFTER UPDATE ON Propagacion for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Propagacion 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Propagacion  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000e2fc", PARENT_OWNER="", PARENT_TABLE="Propagacion"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_23", FK_COLUMNS="IdPropagacion" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdPropagacion <> :new.IdPropagacion
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdPropagacion = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdPropagacion = :old.IdPropagacion;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_Proveedor AFTER DELETE ON Proveedor for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Proveedor 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Proveedor  ProductoVivero on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="000180b6", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="ProductoVivero"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_27", FK_COLUMNS="IdProveedor" */
+    UPDATE ProductoVivero
+      SET
+        /* %SetFK(ProductoVivero,NULL) */
+        ProductoVivero.IdProveedor = NULL
+      WHERE
+        /* %JoinFKPK(ProductoVivero,:%Old," = "," AND") */
+        ProductoVivero.IdProveedor = :old.IdProveedor;
+
+    /* ERwin Builtin Trigger */
+    /* Proveedor  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_26", FK_COLUMNS="IdProveedor" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdProveedor = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdProveedor = :old.IdProveedor;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Proveedor AFTER UPDATE ON Proveedor for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Proveedor 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Proveedor  ProductoVivero on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0001d5b5", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="ProductoVivero"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_27", FK_COLUMNS="IdProveedor" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdProveedor <> :new.IdProveedor
+  THEN
+    UPDATE ProductoVivero
+      SET
+        /* %SetFK(ProductoVivero,NULL) */
+        ProductoVivero.IdProveedor = NULL
+      WHERE
+        /* %JoinFKPK(ProductoVivero,:%Old," = ",",") */
+        ProductoVivero.IdProveedor = :old.IdProveedor;
+  END IF;
+
+  /* Proveedor  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="Proveedor"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_26", FK_COLUMNS="IdProveedor" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdProveedor <> :new.IdProveedor
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdProveedor = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdProveedor = :old.IdProveedor;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_RegionNativa AFTER DELETE ON RegionNativa for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on RegionNativa 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* RegionNativa  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000a914", PARENT_OWNER="", PARENT_TABLE="RegionNativa"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_21", FK_COLUMNS="IdRegion" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdRegion = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdRegion = :old.IdRegion;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_RegionNativa AFTER UPDATE ON RegionNativa for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on RegionNativa 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* RegionNativa  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000d257", PARENT_OWNER="", PARENT_TABLE="RegionNativa"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_21", FK_COLUMNS="IdRegion" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdRegion <> :new.IdRegion
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdRegion = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdRegion = :old.IdRegion;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_Riego AFTER DELETE ON Riego for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Riego 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Riego  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000ae7b", PARENT_OWNER="", PARENT_TABLE="Riego"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_18", FK_COLUMNS="IdRiego" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdRiego = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdRiego = :old.IdRiego;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Riego AFTER UPDATE ON Riego for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Riego 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Riego  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000cf89", PARENT_OWNER="", PARENT_TABLE="Riego"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_18", FK_COLUMNS="IdRiego" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdRiego <> :new.IdRiego
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdRiego = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdRiego = :old.IdRiego;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_Suelo AFTER DELETE ON Suelo for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on Suelo 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* Suelo  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000a8e4", PARENT_OWNER="", PARENT_TABLE="Suelo"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="IdSuelo" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdSuelo = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdSuelo = :old.IdSuelo;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_Suelo AFTER UPDATE ON Suelo for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on Suelo 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* Suelo  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000c6c8", PARENT_OWNER="", PARENT_TABLE="Suelo"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="IdSuelo" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdSuelo <> :new.IdSuelo
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdSuelo = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdSuelo = :old.IdSuelo;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_TipoPlanta AFTER DELETE ON TipoPlanta for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on TipoPlanta 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* TipoPlanta  Planta on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000a8db", PARENT_OWNER="", PARENT_TABLE="TipoPlanta"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_16", FK_COLUMNS="IdTipoPlanta" */
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdTipoPlanta = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = "," AND") */
+        Planta.IdTipoPlanta = :old.IdTipoPlanta;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_TipoPlanta AFTER UPDATE ON TipoPlanta for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on TipoPlanta 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* TipoPlanta  Planta on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000d6ba", PARENT_OWNER="", PARENT_TABLE="TipoPlanta"
+    CHILD_OWNER="", CHILD_TABLE="Planta"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_16", FK_COLUMNS="IdTipoPlanta" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.IdTipoPlanta <> :new.IdTipoPlanta
+  THEN
+    UPDATE Planta
+      SET
+        /* %SetFK(Planta,NULL) */
+        Planta.IdTipoPlanta = NULL
+      WHERE
+        /* %JoinFKPK(Planta,:%Old," = ",",") */
+        Planta.IdTipoPlanta = :old.IdTipoPlanta;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
