@@ -2,7 +2,7 @@ package com.sc202.proyectovivero.Modelo;
 
 import java.sql.*;
 
-public class Conexion {
+public class conexion {
     public static void main(String args[]) {
         try {
             // step1 load the driver class
