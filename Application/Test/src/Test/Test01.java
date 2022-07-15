@@ -27,8 +27,7 @@ public class Test01 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Mostrar la Tabla Regions");
-        jButton1.setActionCommand("Mostrar la Tabla Regions");
+        jButton1.setText("Mostrar la Tabla Clientes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -42,13 +41,11 @@ public class Test01 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(465, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1047, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(22, 22, 22))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,11 +69,11 @@ public class Test01 extends javax.swing.JFrame {
             //Para conectarnos a nuestra base de datos
             String url = "jdbc:oracle:thin:@localhost:1521:orcl";
             // Establecemos los valores de cadena de conexión, usuario y contraseña
-            cn = DriverManager.getConnection(url, "HR", "123");
+            cn = DriverManager.getConnection(url, "Manager", "1234");
             //Para ejecutar la consulta
             s = cn.createStatement();
             //Ejecutamos la consulta y los datos lo almacenamos en un ResultSet
-             rs = s.executeQuery("select * from HR.REGIONS");
+             rs = s.executeQuery("select * from Cliente");
             //Obteniendo la informacion de las columnas que estan siendo consultadas
             ResultSetMetaData rsMd = rs.getMetaData();
             //La cantidad de columnas que tiene la consulta
