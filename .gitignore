@@ -1,2 +1,5 @@
 
 Application/ProyectoVivero/target/
+/Application/ProyectoVivero/build/
+/Application/ProyectoVivero/dist/
+/Application/ProyectoVivero/nbproject/private/
