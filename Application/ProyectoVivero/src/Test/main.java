@@ -13,7 +13,7 @@ public class main {
  
     
     static String bd="orcl";
-    static String login="prueba";
+    static String login="Manager";
     static String password="1234";
     static String url="jdbc:oracle:thin:@localhost:1521:orcl";
     
