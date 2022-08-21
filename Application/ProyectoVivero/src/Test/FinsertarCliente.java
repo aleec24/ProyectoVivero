@@ -159,7 +159,9 @@ public class FinsertarCliente extends javax.swing.JFrame {
         try {
             // main miconexion = new main();
             conn = main.Enlace(conn);
-            String sqlinsertar = "insert into cliente values (?,?,?,?,?,?)";
+            String sqlinsertar = "BEGIN\n"
+                    + "   inCli(?,?,?,?,?,?);\n"
+                    + "END;";
             PreparedStatement psta = conn.prepareStatement(sqlinsertar);
             psta.setString(1, jTextIDCLIENTE.getText());
             psta.setString(2, jTextNOMBRECLIENTE.getText());
@@ -169,7 +171,7 @@ public class FinsertarCliente extends javax.swing.JFrame {
             psta.setString(6, jTextCORREO.getText());
             psta.execute();
             psta.close();
-            JOptionPane.showMessageDialog(null, "Registro Guardado Correcta");
+            JOptionPane.showMessageDialog(null, "Registro Guardado Exitosamente");
         } catch (Exception e) {
             System.out.println(e.getCause());
         }
@@ -178,7 +180,7 @@ public class FinsertarCliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonINSERTARActionPerformed
 
-        public void limpiar() {
+    public void limpiar() {
         jTextIDCLIENTE.setText("");
         jTextNOMBRECLIENTE.setText("");
         jTextAPELLIDOCLIENTE.setText("");
@@ -186,7 +188,7 @@ public class FinsertarCliente extends javax.swing.JFrame {
         jTextCEDULA.setText("");
         jTextTELEFONO.setText("");
     }
-    
+
     private void jTextIDCLIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIDCLIENTEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextIDCLIENTEActionPerformed
