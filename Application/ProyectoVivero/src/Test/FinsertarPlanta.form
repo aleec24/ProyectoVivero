@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelIdPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNombrePlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNombreCientifico" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPrecioPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDescripcionPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelToxicidadPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jButtonInsertarPlanta" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonMostrarPlanta" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jTextToxicidad" alignment="0" pref="203" max="32767" attributes="0"/>
+                      <Component id="jTextDescripcionPlanta" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextNombrePlanta" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextNombreCientifico" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextPrecioPlanta" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextIdPlanta" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="156" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelIdPlanta" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdPlanta" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelNombrePlanta" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextNombrePlanta" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelNombreCientifico" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextNombreCientifico" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelDescripcionPlanta" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextDescripcionPlanta" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelToxicidadPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextToxicidad" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelPrecioPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextPrecioPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButtonInsertarPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonMostrarPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabelIdPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Planta:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNombrePlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre Com&#xfa;n:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNombreCientifico">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre Cient&#xed;fico :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelPrecioPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Precio:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdPlanta">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdPlantaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextNombrePlanta">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextNombreCientifico">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextNombreCientificoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextPrecioPlanta">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonInsertarPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Insertar Planta"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonInsertarPlantaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonMostrarPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mostrar Cliente"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMostrarPlantaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelDescripcionPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Descripci&#xf3;n:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelToxicidadPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Toxicidad:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextDescripcionPlanta">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextDescripcionPlantaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextToxicidad">
+    </Component>
+  </SubComponents>
+</Form>
