@@ -73,11 +73,11 @@ public class FMostrarPlanta extends javax.swing.JFrame {
     private void jbMostrarPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarPlantasActionPerformed
         // TODO add your handling code here:
         try {
-//ejecuta la conexion   
-            conn = main.Enlace(conn);
-//ejecuta la consulta
-            rs = main.EnlEst(rs);
-//volcamos los resultados de rs a rsmetadata
+            //ejecuta la conexion   
+            conn = DatabaseUtils.Enlace(conn);
+            //ejecuta la consulta
+            rs = DatabaseUtils.EnlEst(rs);
+            //volcamos los resultados de rs a rsmetadata
             ResultSetMetaData rsMd = rs.getMetaData();
             //La cantidad de columnas que tiene la consulta
             int cantidadColumnas = rsMd.getColumnCount();

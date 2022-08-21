@@ -2,7 +2,6 @@ package Test;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -158,7 +157,7 @@ public class FinsertarPlanta extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // main miconexion = new main();
-            conn = main.Enlace(conn);
+            conn = DatabaseUtils.Enlace(conn);
             String sqlinsertar = "BEGIN\n"
                     + "   inCli(?,?,?,?,?,?);\n"
                     + "END;";
