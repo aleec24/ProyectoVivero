@@ -38,5 +38,11 @@ public class DatabaseUtils {
         rs = st.executeQuery("select * from Cliente");
         return rs;
     }
+    
+    public static ResultSet Proveedores(ResultSet rs) throws SQLException {
+        st = sta(st);
+        rs = st.executeQuery("select * from Proveedor");
+        return rs;
+    }
 
 }

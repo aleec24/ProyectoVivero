@@ -1,6 +1,8 @@
 package Test;
 
+import Test.models.Proveedor;
 import java.sql.*;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -9,13 +11,40 @@ import javax.swing.JOptionPane;
  */
 public class FinsertarProducto extends javax.swing.JFrame {
 
-    static Connection conn = null;
+    private Connection conn = null;
+    private ArrayList<Proveedor> proveedores = new ArrayList<>();
 
     /**
      * Creates new form FinsertarCliente
      */
     public FinsertarProducto() {
         initComponents();
+        initCombobox();
+    }
+
+    private void initCombobox() {
+
+        try {
+            //ejecuta la conexion   
+            conn = DatabaseUtils.Enlace(conn);
+            //ejecuta la consulta
+            ResultSet rs = null;
+            rs = DatabaseUtils.Proveedores(rs);
+
+            while (rs.next()) {
+                var proveedorId = rs.getObject(1);
+                var proveedorNombre = rs.getObject(2);
+
+                proveedores.add(new Proveedor(proveedorId.toString(), proveedorNombre.toString()));
+                
+                jComboBoxProveedor.addItem(proveedorNombre.toString());
+            }
+
+            rs.close();
+            conn.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -88,7 +117,6 @@ public class FinsertarProducto extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxProveedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxProveedorActionPerformed(evt);
@@ -158,7 +186,7 @@ public class FinsertarProducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonInsertarProducto)
                     .addComponent(jButtonMostrarPlanta))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,12 +201,22 @@ public class FinsertarProducto extends javax.swing.JFrame {
                     + "   inCli(?,?,?,?,?,?);\n"
                     + "END;";
             PreparedStatement psta = conn.prepareStatement(sqlinsertar);
+            
             psta.setString(1, jTextIdProducto.getText());
             psta.setString(2, jTextNombreProducto.getText());
             psta.setString(3, jTextDescripcionProducto.getText());
-            psta.setString(4, jComboBoxProveedor.getSelectedItem().toString()); // TODO: Check
-            psta.setString(5, jTextPrecioProducto.getText());
+            
+            String indexProveedor = null;
+            for(Proveedor proveedor : proveedores) {
+                if(proveedor.getName().equals(jComboBoxProveedor.getSelectedItem().toString())) {
+                    indexProveedor = proveedor.getId();
+                }
+            }
+            psta.setInt(4, Integer.parseInt(indexProveedor));
+            
+            psta.setString(5, jTextPrecioProducto.getText()); // REVISAR
             psta.setString(6, jTextUrlImagen.getText());
+            
             psta.execute();
             psta.close();
             JOptionPane.showMessageDialog(null, "Registro Guardado Exitosamente");
