@@ -8,7 +8,7 @@ public class FMostrarProductos extends javax.swing.JFrame {
     //creando variables
     static Connection conn = null;
     static Statement s = null;
-    static ResultSet rs = null;
+    static ResultSet pd = null;
     //Para establecer el modelo al JTable
     DefaultTableModel modelo = new DefaultTableModel();
 
@@ -91,9 +91,9 @@ public class FMostrarProductos extends javax.swing.JFrame {
             //ejecuta la conexion   
             conn = DatabaseUtils.Enlace(conn);
             //ejecuta la consulta
-            rs = DatabaseUtils.EnlEst(rs);
+            pd = DatabaseUtils.Productos(pd);
             //volcamos los resultados de rs a rsmetadata
-            ResultSetMetaData rsMd = rs.getMetaData();
+            ResultSetMetaData rsMd = pd.getMetaData();
             //La cantidad de columnas que tiene la consulta
             int cantidadColumnas = rsMd.getColumnCount();
             //Establecer como cabezeras el nombre de las columnas
@@ -101,20 +101,18 @@ public class FMostrarProductos extends javax.swing.JFrame {
                 modelo.addColumn(rsMd.getColumnLabel(i));
             }
             //Creando las filas para el JTable
-            while (rs.next()) {
+            while (pd.next()) {
                 Object[] fila = new Object[cantidadColumnas];
                 for (int i = 0; i < cantidadColumnas; i++) {
-                    fila[i] = rs.getObject(i + 1);
+                    fila[i] = pd.getObject(i + 1);
                 }
                 modelo.addRow(fila);
             }
-            rs.close();
+            pd.close();
             conn.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
-
     }//GEN-LAST:event_jbMostrarProductosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

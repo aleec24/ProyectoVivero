@@ -212,7 +212,7 @@ public class FinsertarProducto extends javax.swing.JFrame {
             // main miconexion = new main();
             conn = DatabaseUtils.Enlace(conn);
             String sqlinsertar = "BEGIN\n"
-                    + "   inCli(?,?,?,?,?,?);\n"
+                    + "   inProductoVivero(?,?,?,?,?);\n"
                     + "END;";
             PreparedStatement psta = conn.prepareStatement(sqlinsertar);
             
