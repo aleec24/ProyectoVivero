@@ -1,0 +1,36 @@
+--------------- Este trigger no permite insertar si no se esta con el usuario SYS o SYSTEM
+CREATE OR REPLACE TRIGGER trg_insertar
+ BEFORE INSERT OR UPDATE OR DELETE ON suelo
+BEGIN
+ IF USER NOT IN ('SYSTEM','SYS') THEN
+ RAISE_APPLICATION_ERROR(-20001,'PERMISOS INSUFICIENTES para insertar');
+ END IF;
+END trg_insertar;
+/
+
+SHOW ERROR
+
+---------------- CORRER HASTA AQUI
+---------------- Este trigger no deja que se borren registros de la tabla cliente
+
+CREATE OR REPLACE TRIGGER trg_noborrar
+ BEFORE DELETE ON cliente
+BEGIN
+ RAISE_APPLICATION_ERROR(-20023, 'No se pueden borrar registros de esta tabla. Consulte a su SYSDBA');
+END;
+/
+
+SHOW ERROR
+
+---------------- CORRER HASTA AQUI
+---------------- Este trigger dice el usuario cuando inserta borrar o actualiza un registro 
+CREATE OR REPLACE TRIGGER trg_modificar
+ BEFORE INSERT OR UPDATE OR DELETE ON cliente
+BEGIN
+ IF USER IN ('MANAGER') THEN
+ RAISE_APPLICATION_ERROR(-20001,'Haz insertado correctamente como: MANAGER');
+ END IF;
+END trg_modificar;
+/
+
+SHOW ERROR
