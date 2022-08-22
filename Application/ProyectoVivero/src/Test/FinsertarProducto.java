@@ -70,6 +70,7 @@ public class FinsertarProducto extends javax.swing.JFrame {
         jLabelProveedor = new javax.swing.JLabel();
         jTextPrecioProducto = new javax.swing.JTextField();
         jComboBoxProveedor = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,12 +124,21 @@ public class FinsertarProducto extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelUrlImagen)
@@ -153,7 +163,7 @@ public class FinsertarProducto extends javax.swing.JFrame {
                                 .addComponent(jTextNombreProducto, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextDescripcionProducto, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextIdProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,6 +197,10 @@ public class FinsertarProducto extends javax.swing.JFrame {
                     .addComponent(jButtonInsertarProducto)
                     .addComponent(jButtonMostrarPlanta))
                 .addContainerGap(21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -262,6 +276,12 @@ public class FinsertarProducto extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxProveedorActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     Menu menu=new Menu();
+menu.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -305,6 +325,7 @@ public class FinsertarProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonInsertarProducto;
     private javax.swing.JButton jButtonMostrarPlanta;
     private javax.swing.JComboBox<String> jComboBoxProveedor;

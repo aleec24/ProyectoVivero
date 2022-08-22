@@ -82,6 +82,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
         jButton5.setText("Insertar productos");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Test/planta2.png"))); // NOI18N
@@ -115,6 +120,12 @@ this.dispose();
 fInsertarPlanta.setVisible(true);
 this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       FinsertarProducto fInsertarProducto=new FinsertarProducto();
+fInsertarProducto.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

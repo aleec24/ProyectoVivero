@@ -65,6 +65,7 @@ public class FinsertarPlanta extends javax.swing.JFrame {
         jTextImagenPlanta = new javax.swing.JTextField();
         jLabelIdProveedor = new javax.swing.JLabel();
         jTextIdProveedor = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,6 +179,13 @@ public class FinsertarPlanta extends javax.swing.JFrame {
 
         jLabelIdProveedor.setText("Id Proveedor:");
 
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -259,11 +267,12 @@ public class FinsertarPlanta extends javax.swing.JFrame {
                                     .addComponent(jTextImagenPlanta, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabelPrecioPlanta)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(147, 147, 147)
+                                .addComponent(jButton1)
+                                .addGap(143, 143, 143)
                                 .addComponent(jButtonInsertarPlanta)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonMostrarPlanta)))
-                        .addContainerGap(274, Short.MAX_VALUE))))
+                        .addContainerGap(206, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +352,8 @@ public class FinsertarPlanta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonInsertarPlanta)
-                    .addComponent(jButtonMostrarPlanta))
+                    .addComponent(jButtonMostrarPlanta)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -434,6 +444,12 @@ public class FinsertarPlanta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextIdEnfermedadActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      Menu menu=new Menu();
+menu.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -473,6 +489,7 @@ public class FinsertarPlanta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonInsertarPlanta;
     private javax.swing.JButton jButtonMostrarPlanta;
     private javax.swing.JLabel jLabeIdEnfermedad;
