@@ -1,5 +1,7 @@
 package Test;
 
+import static Test.FMostrarProductos.conn;
+import static Test.FMostrarProductos.pd;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -101,13 +103,14 @@ public class FMostrarPlanta extends javax.swing.JFrame {
 
     private void jbMostrarPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarPlantasActionPerformed
         // TODO add your handling code here:
+          // TODO add your handling code here:
         try {
             //ejecuta la conexion   
             conn = DatabaseUtils.Enlace(conn);
             //ejecuta la consulta
-            rs = DatabaseUtils.EnlEst(rs);
+            pd = DatabaseUtils.Plantas(pd);
             //volcamos los resultados de rs a rsmetadata
-            ResultSetMetaData rsMd = rs.getMetaData();
+            ResultSetMetaData rsMd = pd.getMetaData();
             //La cantidad de columnas que tiene la consulta
             int cantidadColumnas = rsMd.getColumnCount();
             //Establecer como cabezeras el nombre de las columnas
@@ -115,14 +118,14 @@ public class FMostrarPlanta extends javax.swing.JFrame {
                 modelo.addColumn(rsMd.getColumnLabel(i));
             }
             //Creando las filas para el JTable
-            while (rs.next()) {
+            while (pd.next()) {
                 Object[] fila = new Object[cantidadColumnas];
                 for (int i = 0; i < cantidadColumnas; i++) {
-                    fila[i] = rs.getObject(i + 1);
+                    fila[i] = pd.getObject(i + 1);
                 }
                 modelo.addRow(fila);
             }
-            rs.close();
+            pd.close();
             conn.close();
         } catch (Exception ex) {
             ex.printStackTrace();

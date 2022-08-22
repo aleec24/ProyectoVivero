@@ -44,5 +44,17 @@ public class DatabaseUtils {
         rs = st.executeQuery("select * from Proveedor");
         return rs;
     }
+    
+        public static ResultSet Productos(ResultSet pd) throws SQLException {
+        st = sta(st);
+        pd = st.executeQuery("select * from ProductoVivero");
+        return pd;
+    }
+        
+         public static ResultSet Plantas(ResultSet pd) throws SQLException {
+        st = sta(st);
+        pd = st.executeQuery("select * from planta");
+        return pd;
+    }
 
 }
