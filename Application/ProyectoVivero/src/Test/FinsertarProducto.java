@@ -1,6 +1,7 @@
 package Test;
 
 import Test.models.Proveedor;
+import java.awt.HeadlessException;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -71,6 +72,7 @@ public class FinsertarProducto extends javax.swing.JFrame {
         jTextPrecioProducto = new javax.swing.JTextField();
         jComboBoxProveedor = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jTextProveedor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,13 +159,16 @@ public class FinsertarProducto extends javax.swing.JFrame {
                                 .addComponent(jButtonInsertarProducto)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonMostrarPlanta))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboBoxProveedor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextPrecioProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                                .addComponent(jTextNombreProducto, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextDescripcionProducto, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextIdProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(160, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jComboBoxProveedor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextPrecioProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                                    .addComponent(jTextNombreProducto, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextDescripcionProducto, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextIdProducto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(57, 57, 57)
+                                .addComponent(jTextProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +184,9 @@ public class FinsertarProducto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelDescripcionProducto)
-                    .addComponent(jTextDescripcionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextDescripcionProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPrecioProducto)
@@ -207,34 +214,33 @@ public class FinsertarProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonInsertarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertarProductoActionPerformed
-        // TODO add your handling code here:
+
         try {
             // main miconexion = new main();
             conn = DatabaseUtils.Enlace(conn);
             String sqlinsertar = "BEGIN\n"
-                    + "   inCli(?,?,?,?,?,?);\n"
+                    + "   inProductoVivero(?,?,?,?,?,?);\n"
                     + "END;";
             PreparedStatement psta = conn.prepareStatement(sqlinsertar);
             
             psta.setString(1, jTextIdProducto.getText());
             psta.setString(2, jTextNombreProducto.getText());
             psta.setString(3, jTextDescripcionProducto.getText());
+            psta.setString(4, jTextPrecioProducto.getText());
             
-            String indexProveedor = null;
+            String indexProveedor = "";
             for(Proveedor proveedor : proveedores) {
                 if(proveedor.getName().equals(jComboBoxProveedor.getSelectedItem().toString())) {
                     indexProveedor = proveedor.getId();
                 }
             }
-            psta.setInt(4, Integer.parseInt(indexProveedor));
-            
-            psta.setString(5, jTextPrecioProducto.getText()); // REVISAR
+            psta.setString(5, indexProveedor);
             psta.setString(6, jTextUrlImagen.getText());
             
             psta.execute();
             psta.close();
             JOptionPane.showMessageDialog(null, "Registro Guardado Exitosamente");
-        } catch (Exception e) {
+        } catch (HeadlessException | NumberFormatException | SQLException e) {
             System.out.println(e.getCause());
         }
         limpiar();
@@ -339,6 +345,7 @@ this.dispose();
     private javax.swing.JTextField jTextIdProducto;
     private javax.swing.JTextField jTextNombreProducto;
     private javax.swing.JTextField jTextPrecioProducto;
+    private javax.swing.JTextField jTextProveedor;
     private javax.swing.JTextField jTextUrlImagen;
     // End of variables declaration//GEN-END:variables
 }
