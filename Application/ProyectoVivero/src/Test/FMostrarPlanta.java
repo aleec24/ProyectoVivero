@@ -3,7 +3,7 @@ package Test;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
-public class FMostrarCliente extends javax.swing.JFrame {
+public class FMostrarPlanta extends javax.swing.JFrame {
 
     //creando variables
     static Connection conn = null;
@@ -12,29 +12,29 @@ public class FMostrarCliente extends javax.swing.JFrame {
     //Para establecer el modelo al JTable
     DefaultTableModel modelo = new DefaultTableModel();
 
-    public FMostrarCliente() {
+    public FMostrarPlanta() {
         initComponents();
-        this.jTable1.setModel(modelo);
+        this.jTablePlantas.setModel(modelo);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbMostrarClientes = new javax.swing.JButton();
+        jbMostrarPlantas = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePlantas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jbMostrarClientes.setText("Mostrar Clientes");
-        jbMostrarClientes.addActionListener(new java.awt.event.ActionListener() {
+        jbMostrarPlantas.setText("Mostrar Plantas");
+        jbMostrarPlantas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbMostrarClientesActionPerformed(evt);
+                jbMostrarPlantasActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePlantas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -42,7 +42,7 @@ public class FMostrarCliente extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTablePlantas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,7 +50,7 @@ public class FMostrarCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbMostrarClientes)
+                .addComponent(jbMostrarPlantas)
                 .addGap(144, 144, 144))
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
@@ -61,7 +61,7 @@ public class FMostrarCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jbMostrarClientes)
+                .addComponent(jbMostrarPlantas)
                 .addGap(57, 57, 57)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(75, Short.MAX_VALUE))
@@ -70,8 +70,8 @@ public class FMostrarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbMostrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarClientesActionPerformed
-
+    private void jbMostrarPlantasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMostrarPlantasActionPerformed
+        // TODO add your handling code here:
         try {
             //ejecuta la conexion   
             conn = DatabaseUtils.Enlace(conn);
@@ -100,20 +100,20 @@ public class FMostrarCliente extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jbMostrarClientesActionPerformed
+    }//GEN-LAST:event_jbMostrarPlantasActionPerformed
 
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FMostrarCliente().setVisible(true);
+                new FMostrarPlanta().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JButton jbMostrarClientes;
+    private javax.swing.JTable jTablePlantas;
+    private javax.swing.JButton jbMostrarPlantas;
     // End of variables declaration//GEN-END:variables
 }//fin

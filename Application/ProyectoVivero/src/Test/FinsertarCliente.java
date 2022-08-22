@@ -2,7 +2,6 @@ package Test;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -158,8 +157,10 @@ public class FinsertarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // main miconexion = new main();
-            conn = main.Enlace(conn);
-            String sqlinsertar = "insert into cliente values (?,?,?,?,?,?)";
+            conn = DatabaseUtils.Enlace(conn);
+            String sqlinsertar = "BEGIN\n"
+                    + "   inCli(?,?,?,?,?,?);\n"
+                    + "END;";
             PreparedStatement psta = conn.prepareStatement(sqlinsertar);
             psta.setString(1, jTextIDCLIENTE.getText());
             psta.setString(2, jTextNOMBRECLIENTE.getText());
@@ -169,7 +170,7 @@ public class FinsertarCliente extends javax.swing.JFrame {
             psta.setString(6, jTextCORREO.getText());
             psta.execute();
             psta.close();
-            JOptionPane.showMessageDialog(null, "Registro Guardado Correcta");
+            JOptionPane.showMessageDialog(null, "Registro Guardado Exitosamente");
         } catch (Exception e) {
             System.out.println(e.getCause());
         }
@@ -178,7 +179,7 @@ public class FinsertarCliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonINSERTARActionPerformed
 
-        public void limpiar() {
+    public void limpiar() {
         jTextIDCLIENTE.setText("");
         jTextNOMBRECLIENTE.setText("");
         jTextAPELLIDOCLIENTE.setText("");
@@ -186,7 +187,7 @@ public class FinsertarCliente extends javax.swing.JFrame {
         jTextCEDULA.setText("");
         jTextTELEFONO.setText("");
     }
-    
+
     private void jTextIDCLIENTEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextIDCLIENTEActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextIDCLIENTEActionPerformed
@@ -208,41 +209,6 @@ public class FinsertarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextCEDULAActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FinsertarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FinsertarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FinsertarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FinsertarCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FinsertarCliente().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonINSERTAR;
