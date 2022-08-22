@@ -26,30 +26,113 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelIdPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelNombrePlanta" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelNombreCientifico" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelPrecioPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelDescripcionPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelToxicidadPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jButtonInsertarPlanta" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButtonMostrarPlanta" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelImagenPlanta" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelIdPropagacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jTextPrecioPlanta1" min="-2" pref="203" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabeIdPeste" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="149" pref="149" max="-2" attributes="0"/>
+                                          <Component id="jTextIdPeste" min="-2" pref="203" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabeIdRegion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="149" pref="149" max="-2" attributes="0"/>
+                                              <Component id="jTextIdRegion" min="-2" pref="203" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelIdEstacionFlorecimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="149" pref="149" max="-2" attributes="0"/>
+                                              <Component id="jTextIdEstacionFlorecimiento" min="-2" pref="203" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelToxicidadPlanta" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jTextToxicidad" min="-2" pref="203" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jLabeIdEnfermedad" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="149" pref="149" max="-2" attributes="0"/>
+                                          <Component id="jTextIdEnfermedad" min="-2" pref="203" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelDescripcionPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="149" pref="149" max="-2" attributes="0"/>
+                                          <Component id="jTextDescripcionPlanta" min="-2" pref="203" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jTextPrecioPlanta" alignment="1" min="-2" pref="203" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jTextToxicidad" alignment="0" pref="203" max="32767" attributes="0"/>
-                      <Component id="jTextDescripcionPlanta" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextNombrePlanta" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextNombreCientifico" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextPrecioPlanta" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextIdPlanta" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="149" pref="149" max="-2" attributes="0"/>
+                              <Component id="jTextIdProveedor" min="-2" pref="203" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabelIdProveedor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelIdTipoPlanta" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="jTextIdTipoPlanta" min="-2" pref="203" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabeIdRiego" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelIdPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNombrePlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNombreCientifico" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelIdClima" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabeIdSuelo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabeIdExposicionSolar" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="jTextIdRiego" min="-2" pref="203" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jTextIdExposicionSolar" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextIdSuelo" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextIdClima" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextNombrePlanta" alignment="0" pref="203" max="32767" attributes="0"/>
+                                          <Component id="jTextNombreCientifico" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextIdPlanta" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jTextImagenPlanta" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jLabelPrecioPlanta" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                              <Component id="jButtonInsertarPlanta" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonMostrarPlanta" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="274" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="156" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,25 +156,85 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelDescripcionPlanta" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextDescripcionPlanta" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelIdClima" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdClima" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabeIdSuelo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdSuelo" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabeIdExposicionSolar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdExposicionSolar" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabeIdRiego" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdRiego" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTextIdTipoPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelIdTipoPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelIdEstacionFlorecimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdEstacionFlorecimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabeIdRegion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdRegion" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelToxicidadPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextToxicidad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabeIdPeste" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdPeste" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabeIdEnfermedad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdEnfermedad" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelDescripcionPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextDescripcionPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelPrecioPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextPrecioPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelIdPropagacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextPrecioPlanta1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelImagenPlanta" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextImagenPlanta" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelIdProveedor" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextIdProveedor" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonInsertarPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonMostrarPlanta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -163,6 +306,111 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextToxicidad">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelIdClima">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Clima:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdClima">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdClimaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeIdSuelo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Suelo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdSuelo">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdSueloActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeIdExposicionSolar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Exposici&#xf3;n Solar:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdExposicionSolar">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdExposicionSolarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeIdRiego">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Riego:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdRiego">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdRiegoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelIdTipoPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Id Tipo Planta:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelIdEstacionFlorecimiento">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Id Estacion Florecimiento:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdEstacionFlorecimiento">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdTipoPlanta">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeIdRegion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Regi&#xf3;n:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdRegion">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdRegionActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeIdPeste">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Peste:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdPeste">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdPesteActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabeIdEnfermedad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Enfermedad:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdEnfermedad">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextIdEnfermedadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelIdPropagacion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Id Propagacion:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextPrecioPlanta1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelImagenPlanta">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="URL Imagen:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextImagenPlanta">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelIdProveedor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Id Proveedor:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextIdProveedor">
     </Component>
   </SubComponents>
 </Form>
