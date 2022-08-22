@@ -50,5 +50,11 @@ public class DatabaseUtils {
         pd = st.executeQuery("select * from ProductoVivero");
         return pd;
     }
+        
+         public static ResultSet Plantas(ResultSet pd) throws SQLException {
+        st = sta(st);
+        pd = st.executeQuery("select * from planta");
+        return pd;
+    }
 
 }
